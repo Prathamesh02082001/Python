@@ -1,0 +1,165 @@
+#1) define 3 functions "add()","modify()" and "delete()" with just a print message.
+#now accept input from user as a number. if the number entered is 1, call "add()"
+#if it is 2, call "modify()" if it is 3, call "delete()" [ hint: use "match... case" ]
+def add():
+    print("add fun")
+def modify():
+    print("modify fun")
+def delete():
+    print("delete fun")   
+a=int(input("Enter choice between 1 to 3 : "))
+match a :
+ case 1 : 
+   add()
+ case 2 :
+    modify()   
+ case 3 :
+    delete()
+    
+
+
+# Q.2)define a function which accepts a number and return its square.
+
+def sqr(a):
+    return a*a
+a=int(input("Enter a no : "))
+b=sqr(a)
+print(b)
+
+
+# Q.3) define a function which accepts character,int,string and display them.
+
+def cal(var):
+      print(var)
+cal('A')
+cal(10)
+cal("Pankaj")
+
+
+#Q.4) define "myfun1()" with a print statement. now define "myfun2()" which should invoke "myfun1()" function. 
+invoke myfun2()
+
+def myfun1():
+    print("myfun1")
+def myfun2():
+    myfun1()
+    
+myfun2()
+
+
+Q.5)define a function to accept a number. This function should return 1 if a number passed is more than 0
+return -1 if a number passed is less than 0 , else it should return 0.
+
+def fun(a):
+    if a>0:
+        return 1
+    elif a<0:
+        return -1
+    else:
+        return 0
+b=int(input("Enter a no :"))
+c=fun(b)
+print(c)
+
+
+6) define a function which accepts a character and return toggle of it.
+
+def toggle(char):
+ return char.swapcase()
+
+a=input("Eneter char ")  
+c=toggle(a)
+print(c)
+
+
+7) define a function which accepts a string , toggle and return it.
+	[ hint :  use "swapcase()" function of string ]
+
+
+def toggle_string(string, toggle):
+  toggled_string = ""
+  for char in string:
+    if toggle == "upper":
+      toggled_string += char.upper()
+    elif toggle == "lower":
+      toggled_string += char.lower()
+    else:
+      toggled_string += char.swapcase()
+
+  return toggled_string
+
+print(toggle_string('aBc', 'upper'))  
+print(toggle_string('AbC', 'lower'))  
+print(toggle_string('AbC', 'swap'))  
+
+
+8) write a function to accept minimum 3 characters and maximum 5 characters. 
+ 	[ use default arguments method ]
+
+def accept_characters(min_length=3, max_length=5):
+    while True:
+        string = input("Enter a string: ")
+
+        if len(string) < min_length:
+            print("String must be at least", min_length, "characters long.")
+        elif len(string) > max_length:
+            print("String must be at most", max_length, "characters long.")
+        else:
+            break
+
+    return string
+
+print(accept_characters()) 
+
+9) define a function in such a way that it can accept n number of values and print their sum. [ variable number of arguments]
+
+def accept(*vargs):
+    result=0
+    if(vargs.__len__()==0):
+     print("no argument passed")
+    else:
+	    for k in vargs:
+             result += k
+    return result
+print(accept(10,20,30,80,60))	
+
+
+########################################################################################
+
+1) create 3 functions "show1()","show2()" and "show3()"
+now define a function "caller" in such a way that it can accept any function as an argument and invoke the same.
+
+invoke caller function by passing show1,show2 and show3
+
+def show1():
+    print("show 1")
+def show2():
+    print("show 2")
+def show3():
+    print("show 3")
+def caller(fun):
+    if callable(fun):
+        fun()
+    else:
+        print("You Passed Non Callable Argument To Caller Function")
+caller(show1)
+caller(show2)
+caller(show3)
+
+
+Q.2) define nested function and show how will you invoke it.
+ 
+def outer():
+    def inner():
+        print("In Inner Function")
+    print("In Outer Function")
+    return inner
+val=outer()
+val()
+
+
+
+
+
+
+
