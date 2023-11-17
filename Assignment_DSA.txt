@@ -1,0 +1,69 @@
+
+Q.1)Design a program to manage the inventory of a grocery store. Use a dictionary to store the inventory items, with the item name as the key and the quantity as the value. Implement functions to add items to the inventory, remove items, and display the current inventory.
+code:
+Mygro = {"Soap":100, "Brush":50, "Chocolates":25, "Spray":12}
+
+def add_items(dict):
+    element = input("Enter an element to be added:")
+    quat = int(input("Enter quantity: "))
+    
+    if element not in dict:
+        dict[element] = quat
+    else:
+        dict[element]+= quat
+        
+    print(dict)
+        
+add_items(Mygro)
+
+def del_items(dict):
+    element=input("Enter an element to be removed: ")
+    
+    if element not in dict:
+        print(element, "not present in Mygro")
+    else:
+        dict.pop(element)
+        print(dict)
+        
+del_items(Mygro)
+
+
+Q.2)Develop a function to validate the format of an email address. Use regular expressions to check if the email address follows the correct structure, including the presence of an @ symbol, a domain name, and a top-level domain (e.g., .com, .net, .org).
+code:
+import re
+
+def check_m(id):
+    email_pat="([a-zA-Z0-9_.]+@[a-zA-Z0-9]+.[a-zA-Z]+$)"
+    
+    if re.match(email_pat, id):
+     print("valid")
+    else:
+     print("Not valid")
+    
+emailid="rushikeshpote1212@gmail.com"  
+check_m(emailid) 
+
+
+Q.3)Create a program to assess the strength of a user-provided password. Use a combination of regular expressions and data structures to evaluate the password's length, complexity, and presence of special characters. Assign a strength rating (e.g., weak, medium, strong) based on the evaluation.
+code:
+def passw(password):
+    pass_pattern = re.compile(r"[a-zA-Z0-9_.]+[@#$%^&*]+[a-zA-Z0-9_.]+")
+    length = re.compile(r".{9,}")
+
+    if pass_pattern.match(password):
+        print("Valid")
+    else:
+        print("Invalid")
+
+    if length.match(password) and len(password) >= 9:
+        print("Hard")
+    elif len(password) == 9:
+        print("Medium")
+    else:
+        print("Simple")
+
+passw("Rocco@1299")
+
+
+
+
